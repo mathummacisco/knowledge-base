@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+
+{# Page-template override used by docs/index.md (via `template: home.html`). #}
+{# Renders the Full-Blitzy hero band ABOVE the normal article body. #}
+
+{% block tabs %}
+  {{ super() }}
+
+  <section class="kb-hero" aria-label="Knowledge base hero">
+    <div class="kb-hero__glow" aria-hidden="true"></div>
+    <div class="kb-hero__inner md-grid">
+      <p class="kb-hero__eyebrow">Knowledge Base</p>
+      <h1 class="kb-hero__title">
+        The single source of truth for
+        <span class="kb-hero__title-accent">platform, security, and engineering</span>
+        knowledge.
+      </h1>
+      <p class="kb-hero__lede">
+        A living library of SOPs, runbooks, architecture decisions, and field guides —
+        kept fresh, searchable, and cited.
+      </p>
+      <div class="kb-hero__cta">
+        <a class="kb-cta kb-cta--primary" href="{{ 'browse/' | url }}">
+          Start exploring
+          <span class="kb-cta__arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="kb-cta kb-cta--ghost" href="{{ 'tags/' | url }}">
+          Browse by tag
+        </a>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block content %}
+  <div class="kb-home-body">
+    {{ super() }}
+  </div>
+{% endblock %}

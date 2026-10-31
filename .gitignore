@@ -1,0 +1,51 @@
+
+```ignore
+
+```
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Icon
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# MkDocs build output
+_site/
+site/
+
+# Python virtualenvs / caches
+.venv*/
+venv/
+__pycache__/
+*.pyc
+
+# Vibe Code Assistant - AI Instructions & Prompts
+# Auto-generated AI guidance files - excluded from version control
+.github/instructions/
+.github/prompts/
+.github/copilot-instructions.md
+
+# Note: These files enhance GitHub Copilot with project-specific guidance.
+# They are excluded to keep your repository clean and focused on your code.
+# The extension will recreate them as needed when analyzing code.
+
+# Spec Driven Development - AI Instructions & Prompts
+# Auto-generated AI guidance files - excluded from version control
+.spec-driven-development/
+
+# Note: These files enhance GitHub Copilot with project-specific guidance.
+# They are excluded to keep your repository clean and focused on your code.
+# The extension will recreate them as needed when analyzing code.

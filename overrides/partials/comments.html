@@ -1,0 +1,22 @@
+{# Renders below the main article content on every page. #}
+{% set page_path = page.file.src_uri %}
+{% set issue_title = "[docs] feedback on " ~ page_path %}
+{% set issue_body = "Page: " ~ config.site_url ~ page.url ~ "%0A%0A" %}
+{% set issue_url = config.repo_url ~ "/issues/new?title=" ~ issue_title|urlencode ~ "&body=" ~ issue_body ~ "&labels=docs-feedback" %}
+{% set edit_url = config.repo_url ~ "/edit/main/docs/" ~ page_path %}
+
+<div class="kb-page-feedback">
+  <hr />
+  <p class="kb-feedback-line">
+    <span class="kb-feedback-prompt">Was this page helpful?</span>
+    <a class="kb-feedback-action" href="{{ edit_url }}" title="Edit this page on GitHub" target="_blank" rel="noopener">
+      <span class="twemoji">{% include ".icons/material/pencil-outline.svg" %}</span>
+      Edit this page
+    </a>
+    <span class="kb-feedback-sep">·</span>
+    <a class="kb-feedback-action" href="{{ issue_url }}" title="Open a GitHub issue for this page" target="_blank" rel="noopener">
+      <span class="twemoji">{% include ".icons/octicons/issue-opened-16.svg" %}</span>
+      Report an issue
+    </a>
+  </p>
+</div>

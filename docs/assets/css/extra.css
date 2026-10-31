@@ -1,0 +1,1044 @@
+/* =========================================================================
+   Knowledge Base — Material theme overrides
+   Blitzy-inspired refresh: dark hero, cyan accent, numbered steps,
+   featured cards, header CTA.
+   ========================================================================= */
+
+:root {
+  /* Brand tokens (Blitzy-leaning) */
+  --kb-cyan: #22d3ee;
+  --kb-cyan-soft: rgba(34, 211, 238, 0.18);
+  --kb-cyan-glow: rgba(34, 211, 238, 0.45);
+  --kb-amber: #fbbf24;
+  --kb-amber-soft: rgba(251, 191, 36, 0.16);
+
+  --kb-ink-950: #0b0d11;
+  --kb-ink-900: #111319;
+  --kb-ink-800: #181b22;
+  --kb-ink-700: #232631;
+  --kb-ink-100: #f5f6f8;
+
+  /* Shadows */
+  --kb-card-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+  --kb-card-shadow-hover:
+    0 2px 4px rgba(0, 0, 0, 0.06),
+    0 16px 36px rgba(0, 0, 0, 0.12);
+  --kb-cta-shadow: 0 0 0 4px var(--kb-cyan-soft);
+  --kb-cta-shadow-hover:
+    0 0 0 6px var(--kb-cyan-soft),
+    0 12px 28px var(--kb-cyan-glow);
+
+  /* Override Material accent so links + hovers track Blitzy cyan exactly. */
+  --md-accent-fg-color: var(--kb-cyan);
+  --md-accent-fg-color--transparent: var(--kb-cyan-soft);
+}
+
+[data-md-color-scheme="slate"] {
+  --kb-card-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.35);
+  --kb-card-shadow-hover:
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 16px 36px rgba(0, 0, 0, 0.55);
+
+  --md-accent-fg-color: var(--kb-cyan);
+  --md-accent-fg-color--transparent: var(--kb-cyan-soft);
+}
+
+/* =========================================================================
+   HEADER — sleek dark bar + Contribute CTA pill injected by contribute.js
+   ========================================================================= */
+
+.md-header {
+  background-color: var(--kb-ink-950);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* =========================================================================
+   Page metadata strip — injected by scripts/page_meta_hook.py right after
+   the H1 of every content page. Shows doc type, owner team, and last
+   reviewed date.
+   ========================================================================= */
+.kb-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.55rem;
+  margin: -0.5rem 0 1.5rem;
+  font-size: 0.8125rem;
+  color: var(--md-default-fg-color--light);
+}
+.kb-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  background: transparent;
+}
+.kb-chip--sop            { color: #0891b2; }
+.kb-chip--runbook        { color: #d97706; }
+.kb-chip--troubleshooting{ color: #ea580c; }
+.kb-chip--reference      { color: #64748b; }
+.kb-chip--analysis       { color: #7c3aed; }
+.kb-chip--migration      { color: #c026d3; }
+.kb-chip--architecture   { color: #4f46e5; }
+[data-md-color-scheme="slate"] .kb-chip--sop            { color: #67e8f9; }
+[data-md-color-scheme="slate"] .kb-chip--runbook        { color: #fbbf24; }
+[data-md-color-scheme="slate"] .kb-chip--troubleshooting{ color: #fb923c; }
+[data-md-color-scheme="slate"] .kb-chip--reference      { color: #94a3b8; }
+[data-md-color-scheme="slate"] .kb-chip--analysis       { color: #c4b5fd; }
+[data-md-color-scheme="slate"] .kb-chip--migration      { color: #f0abfc; }
+[data-md-color-scheme="slate"] .kb-chip--architecture   { color: #a5b4fc; }
+.kb-chip__divider {
+  opacity: 0.5;
+  font-weight: 700;
+}
+.kb-chip__meta {
+  font-variant-numeric: tabular-nums;
+}
+.kb-chip__meta strong {
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+  text-transform: capitalize;
+}
+
+/* =========================================================================
+   "What's new" panel — injected by scripts/whats_new_hook.py on pages
+   that contain the <!-- whats-new --> marker.
+   ========================================================================= */
+.kb-whatsnew {
+  margin: 2.5rem 0 1.5rem;
+}
+.kb-whatsnew--empty {
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  background: var(--md-default-bg-color);
+  border: 1px dashed var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.875rem;
+}
+.kb-whatsnew__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+.kb-whatsnew__h {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.kb-whatsnew__sub {
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.875rem;
+}
+.kb-whatsnew__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.75rem;
+}
+.kb-whatsnew__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+  text-decoration: none;
+  color: var(--md-default-fg-color);
+  transition: all 0.15s ease;
+}
+.kb-whatsnew__card:hover {
+  border-color: var(--kb-cyan);
+  transform: translateY(-2px);
+  box-shadow: var(--kb-card-shadow-hover);
+}
+.kb-whatsnew__badge {
+  align-self: flex-start;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kb-cyan);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--kb-cyan-soft);
+}
+.kb-whatsnew__title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+.kb-whatsnew__date {
+  margin-top: auto;
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color--lighter);
+  font-feature-settings: "tnum" 1;
+}
+
+/* =========================================================================
+   404 page — keep the same brand vocabulary as the hero
+   ========================================================================= */
+.kb-404 {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+}
+.kb-404__code {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: clamp(4rem, 14vw, 9rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--kb-cyan) 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.kb-404__title {
+  font-size: clamp(1.5rem, 3.6vw, 2.25rem);
+  font-weight: 700;
+  margin: 0.5rem 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+.kb-404__lead {
+  max-width: 36rem;
+  margin: 0 auto 1.5rem;
+  color: var(--md-default-fg-color--light);
+}
+.kb-404__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+.kb-404__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.kb-404__btn:hover {
+  border-color: var(--kb-cyan);
+  color: var(--kb-cyan);
+  transform: translateY(-1px);
+}
+.kb-404__btn--primary {
+  background: var(--kb-cyan);
+  border-color: var(--kb-cyan);
+  color: var(--kb-ink-950);
+}
+.kb-404__btn--primary:hover {
+  background: #06b6d4;
+  border-color: #06b6d4;
+  color: var(--kb-ink-950);
+  box-shadow: var(--kb-cta-shadow);
+}
+
+/* Custom mark sized for the dark header */
+.md-header__button.md-logo {
+  margin-right: 0.35rem;
+}
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.35));
+}
+
+.md-header__title {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Section tabs row */
+.md-tabs {
+  background-color: var(--kb-ink-900);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.md-tabs__link {
+  opacity: 0.85;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  transition: opacity 120ms ease, color 120ms ease;
+}
+
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  opacity: 1;
+  color: var(--kb-cyan);
+}
+
+/* Header search box: subtle cyan focus ring */
+.md-search__input:focus {
+  box-shadow: 0 0 0 3px var(--kb-cyan-soft);
+}
+
+/* Header Contribute CTA (injected via JS) */
+.kb-header-contribute {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0.5rem 0 0.25rem;
+  padding: 0.4rem 0.95rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--kb-ink-950);
+  background-color: var(--kb-cyan);
+  border-radius: 999px;
+  white-space: nowrap;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    background-color 120ms ease;
+  box-shadow: 0 0 0 0 var(--kb-cyan-soft);
+}
+
+.kb-header-contribute:hover,
+.kb-header-contribute:focus-visible {
+  color: var(--kb-ink-950);
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 4px var(--kb-cyan-soft), 0 8px 20px var(--kb-cyan-glow);
+  outline: none;
+}
+
+.kb-header-contribute__arrow {
+  transition: transform 120ms ease;
+}
+
+.kb-header-contribute:hover .kb-header-contribute__arrow {
+  transform: translateX(2px);
+}
+
+@media (max-width: 60em) {
+  .kb-header-contribute {
+    display: none;
+  }
+}
+
+/* =========================================================================
+   HOME HERO — Full-Blitzy: dark band, radial glow, oversized headline
+   ========================================================================= */
+
+.kb-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(34, 211, 238, 0.18) 0%,
+      rgba(34, 211, 238, 0) 55%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(251, 191, 36, 0.12) 0%,
+      rgba(251, 191, 36, 0) 50%
+    ),
+    linear-gradient(180deg, var(--kb-ink-950) 0%, var(--kb-ink-900) 100%);
+  color: var(--kb-ink-100);
+  padding: clamp(3rem, 8vw, 7rem) 0 clamp(3rem, 7vw, 6rem);
+}
+
+.kb-hero__glow {
+  position: absolute;
+  top: -10%;
+  right: -8%;
+  width: 42rem;
+  height: 42rem;
+  background: radial-gradient(
+    circle,
+    rgba(34, 211, 238, 0.22) 0%,
+    rgba(34, 211, 238, 0) 65%
+  );
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.kb-hero__inner {
+  position: relative;
+  max-width: 70rem;
+  padding: 0 1.25rem;
+}
+
+.kb-hero__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--kb-cyan);
+  margin: 0 0 1rem;
+}
+
+.kb-hero__title {
+  font-size: clamp(2.2rem, 6.2vw, 4.4rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.25rem;
+  color: var(--kb-ink-100);
+  max-width: 50rem;
+}
+
+.kb-hero__title-accent {
+  background: linear-gradient(90deg, var(--kb-cyan) 0%, #67e8f9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.kb-hero__lede {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.55;
+  color: rgba(245, 246, 248, 0.78);
+  max-width: 40rem;
+  margin: 0 0 2rem;
+}
+
+.kb-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.kb-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  text-decoration: none;
+  border-radius: 999px;
+  transition:
+    transform 120ms ease,
+    box-shadow 160ms ease,
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.kb-cta--primary {
+  color: var(--kb-ink-950);
+  background-color: var(--kb-cyan);
+  box-shadow: var(--kb-cta-shadow);
+}
+
+.kb-cta--primary:hover,
+.kb-cta--primary:focus-visible {
+  color: var(--kb-ink-950);
+  transform: translateY(-2px);
+  box-shadow: var(--kb-cta-shadow-hover);
+  outline: none;
+}
+
+.kb-cta--ghost {
+  color: var(--kb-ink-100);
+  background-color: transparent;
+  border: 1px solid rgba(245, 246, 248, 0.28);
+}
+
+.kb-cta--ghost:hover,
+.kb-cta--ghost:focus-visible {
+  color: var(--kb-cyan);
+  border-color: var(--kb-cyan);
+  outline: none;
+}
+
+.kb-cta__arrow {
+  transition: transform 160ms ease;
+}
+
+.kb-cta:hover .kb-cta__arrow {
+  transform: translateX(3px);
+}
+
+/* Home content sits below the hero — give it breathing room */
+.kb-home-body {
+  padding-top: 2rem;
+}
+
+/* The home page hides nav + toc, so the body should be wider */
+.kb-home-body .md-content {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+/* =========================================================================
+   HOME STEPS — numbered 01 / 02 / 03 cards (Blitzy-style)
+   ========================================================================= */
+
+.md-typeset .kb-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+
+@media (max-width: 60em) {
+  .md-typeset .kb-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.md-typeset .kb-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.4rem 1.5rem 1.5rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.75rem;
+  background-color: var(--md-default-bg-color);
+  box-shadow: var(--kb-card-shadow);
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.md-typeset .kb-step:hover {
+  transform: translateY(-2px);
+  border-color: var(--kb-cyan);
+  box-shadow: var(--kb-card-shadow-hover);
+}
+
+.md-typeset .kb-step__number {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--kb-cyan);
+}
+
+.md-typeset .kb-step__body h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.md-typeset .kb-step__body p {
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+/* =========================================================================
+   FEATURED CARDS — eyebrow + headline + arrow CTA
+   ========================================================================= */
+
+.md-typeset .grid.cards.kb-featured > :is(ul, ol) > li,
+.md-typeset .grid.cards.kb-featured > .card {
+  position: relative;
+  padding: 1.6rem 1.5rem 1.6rem;
+}
+
+.md-typeset .kb-card__eyebrow {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--kb-cyan);
+  margin-bottom: 0.6rem;
+}
+
+/* =========================================================================
+   PILLARS ROW — pill links under the featured row
+   ========================================================================= */
+
+.md-typeset .kb-pillars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.6rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.md-typeset a.kb-pillar {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.95rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--md-default-fg-color);
+  background-color: var(--md-default-fg-color--lightest);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  transition:
+    color 120ms ease,
+    background-color 120ms ease,
+    border-color 120ms ease,
+    transform 120ms ease;
+}
+
+.md-typeset a.kb-pillar:hover {
+  color: var(--kb-cyan);
+  border-color: var(--kb-cyan);
+  background-color: var(--kb-cyan-soft);
+  transform: translateY(-1px);
+}
+
+/* =========================================================================
+   GENERIC GRID-CARD POLISH (used on Browse + section landings)
+   ========================================================================= */
+
+.md-typeset .grid.cards > :is(ul, ol) > li,
+.md-typeset .grid > .card,
+.md-typeset .grid.cards > .card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.7rem;
+  box-shadow: var(--kb-card-shadow);
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    border-color 140ms ease;
+}
+
+.md-typeset .grid.cards > :is(ul, ol) > li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--kb-card-shadow-hover);
+  border-color: var(--kb-cyan);
+}
+
+.md-typeset .grid.cards :is(.lg, .xl, .twemoji) {
+  color: var(--kb-cyan);
+}
+
+/* =========================================================================
+   TYPOGRAPHY + GENERAL POLISH
+   ========================================================================= */
+
+.md-typeset h1 {
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.md-typeset h2 {
+  letter-spacing: -0.012em;
+  padding-top: 0.4rem;
+}
+
+.md-typeset h2:hover .headerlink,
+.md-typeset h3:hover .headerlink,
+.md-typeset h4:hover .headerlink {
+  opacity: 0.7;
+}
+
+/* Code */
+.md-typeset pre > code {
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.md-typeset code {
+  border-radius: 0.25rem;
+  padding: 0.05rem 0.35rem;
+}
+
+/* Tags */
+.md-typeset .md-tag {
+  border-radius: 1rem;
+  font-size: 0.72rem;
+  padding: 0.15rem 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Tables */
+.md-typeset table:not([class]) {
+  border-radius: 0.4rem;
+  overflow: hidden;
+  box-shadow: var(--kb-card-shadow);
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--md-default-fg-color--lightest);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Admonitions */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0.5rem;
+  border-left-width: 0.25rem;
+  box-shadow: none;
+}
+
+/* Footer */
+.md-footer-meta {
+  font-size: 0.78rem;
+}
+
+/* =========================================================================
+   PAGE FEEDBACK — bottom-of-article "Edit / Report" line
+   ========================================================================= */
+
+.kb-page-feedback {
+  margin-top: 2.5rem;
+}
+
+.kb-page-feedback hr {
+  border: 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  margin-bottom: 1rem;
+}
+
+.kb-feedback-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.kb-feedback-prompt {
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+}
+
+.kb-feedback-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--md-typeset-a-color);
+  text-decoration: none;
+  border-radius: 0.3rem;
+  padding: 0.15rem 0.5rem;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.kb-feedback-action:hover {
+  background-color: var(--kb-cyan-soft);
+  color: var(--kb-cyan);
+}
+
+.kb-feedback-action .twemoji {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+}
+
+.kb-feedback-action .twemoji svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.kb-feedback-sep {
+  color: var(--md-default-fg-color--lighter);
+}
+
+/* Git revision date footer line */
+.md-source-date,
+.md-source-file__fact {
+  font-size: 0.72rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* =========================================================================
+   Mobile / tablet polish (Round L)
+   The Material theme handles the broad breakpoints; this is the per-component
+   shrink for our custom additions (hero, feedback strip, meta strip, cards).
+   ========================================================================= */
+
+@media (max-width: 600px) {
+  /* Meta strip wraps neatly and the type chip stays on its own line */
+  .kb-meta {
+    gap: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  .kb-meta .kb-chip__divider {
+    display: none;
+  }
+  .kb-chip__meta {
+    width: 100%;
+  }
+
+  /* Feedback strip stacks instead of clipping */
+  .kb-feedback-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  .kb-feedback-sep {
+    display: none;
+  }
+
+  /* 404 buttons stack at one per row */
+  .kb-404__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kb-404__btn {
+    text-align: center;
+  }
+
+  /* Tighten card-grid landings on phones — each card spans full width
+     (Material already does this for `.grid.cards` ≤ 480px; reinforce the
+     gap so cards don't visually collide). */
+  .md-typeset .grid.cards {
+    gap: 0.6rem;
+  }
+}
+
+/* =========================================================================
+   Keyboard focus ring (Round L)
+   Material draws focus rings on links and form controls, but our custom
+   buttons (`.kb-cta`, `.kb-404__btn`, `.kb-feedback-action`) were missing
+   a visible focus state. Restore one with the brand-accent ring used
+   elsewhere on the site.
+   ========================================================================= */
+
+.kb-cta:focus-visible,
+.kb-404__btn:focus-visible,
+.kb-feedback-action:focus-visible,
+.kb-chip:focus-visible {
+  outline: 2px solid var(--kb-cyan);
+  outline-offset: 3px;
+  border-radius: 0.4rem;
+}
+
+/* Make the skip-to-content link discoverable for keyboard users.
+   Material ships one but it's invisible until focused — bump z-index
+   so it always sits above hero/CTAs. */
+.md-skip:focus {
+  z-index: 9999;
+}
+
+/* =========================================================================
+   Print stylesheet (Round L)
+   Goal: a clean, paper-friendly page for runbooks and SOPs that on-call
+   engineers occasionally print or save to PDF. Strip chrome, force black
+   ink, hide interactive affordances.
+   ========================================================================= */
+
+@media print {
+  /* Drop the chrome */
+  .md-header,
+  .md-sidebar,
+  .md-footer,
+  .md-search,
+  .md-tabs,
+  .md-source,
+  .md-source-file,
+  .md-content__button,
+  .md-top,
+  .md-nav,
+  .md-skip,
+  .kb-page-feedback,
+  .kb-cta-banner,
+  .kb-404__actions,
+  .md-typeset details > summary::after,
+  .md-typeset .admonition > .admonition-title::before {
+    display: none !important;
+  }
+
+  /* Open up the content area to the full page width */
+  .md-main__inner,
+  .md-content,
+  .md-content__inner {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Black ink, white paper */
+  body, .md-typeset, .md-typeset p, .md-typeset li {
+    color: #000 !important;
+    background: #fff !important;
+  }
+  a, a:visited {
+    color: #000 !important;
+    text-decoration: underline !important;
+  }
+
+  /* Expand collapsed admonitions and details on print */
+  .md-typeset details,
+  .md-typeset .admonition {
+    page-break-inside: avoid;
+  }
+  .md-typeset details {
+    border: 1px solid #888 !important;
+  }
+  .md-typeset details > * {
+    display: block !important;
+  }
+
+  /* Keep code blocks readable */
+  .md-typeset pre,
+  .md-typeset code {
+    background: #f4f4f4 !important;
+    border: 1px solid #ccc !important;
+    color: #000 !important;
+  }
+
+  /* Reveal underlying URLs after each link so PDFs are useful offline */
+  .md-typeset a[href]:not([href^="#"])::after {
+    content: " (" attr(href) ")";
+    font-size: 0.7em;
+    color: #555;
+  }
+
+  /* Strip the metadata chips' colour so paper doesn't render solid blocks */
+  .kb-meta,
+  .kb-chip,
+  .kb-chip__meta {
+    color: #000 !important;
+    border-color: #000 !important;
+    background: transparent !important;
+  }
+
+  /* Avoid lonely headings at the bottom of a page */
+  .md-typeset h1, .md-typeset h2, .md-typeset h3 {
+    page-break-after: avoid;
+  }
+
+  /* Force every card grid to render single-column on paper */
+  .md-typeset .grid.cards {
+    display: block !important;
+  }
+  .md-typeset .grid.cards > ul {
+    display: block !important;
+  }
+  .md-typeset .grid.cards > ul > li {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* ============================================================ */
+/* Diagram series — figure wrapper around Mermaid blocks         */
+/* Used by docs/60-best-practices/harness-engineering/* and any  */
+/* other doc that wants a polished "captioned diagram" look.     */
+/* ============================================================ */
+
+.md-typeset figure.kb-diagram {
+  margin: 1.75rem auto;
+  padding: 1.25rem 1.25rem 0.5rem;
+  max-width: 880px;
+  background: var(--md-default-bg-color, #fff);
+  border: 1px solid var(--md-default-fg-color--lightest, #e2e8f0);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.md-typeset figure.kb-diagram:hover {
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.md-typeset figure.kb-diagram .mermaid {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.md-typeset figure.kb-diagram .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Generated infographic images inside .kb-diagram render with the same chrome
+ * as mermaid SVGs: centered, scaled to container, subtle rounded corners. */
+.md-typeset figure.kb-diagram img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.375rem;
+}
+
+.md-typeset figure.kb-diagram figcaption {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--md-default-fg-color--lightest, #e2e8f0);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--md-default-fg-color--light, #475569);
+  text-align: center;
+  font-style: normal;
+}
+
+.md-typeset figure.kb-diagram figcaption em {
+  font-style: italic;
+}
+
+.md-typeset figure.kb-diagram figcaption strong {
+  color: var(--md-default-fg-color, #0f172a);
+}
+
+/* Diagram number chip — optional, used as <figcaption><span class="kb-diagram__num">Fig 4</span> ... */
+.md-typeset figure.kb-diagram .kb-diagram__num {
+  display: inline-block;
+  margin-right: 0.4rem;
+  padding: 0.05rem 0.45rem;
+  background: #1e3a8a;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
+/* Reference-image details block sitting below each diagram */
+.md-typeset figure.kb-diagram + details.kb-diagram-source {
+  margin: -0.75rem auto 1.5rem;
+  max-width: 880px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .md-typeset figure.kb-diagram {
+    background: var(--md-code-bg-color, #1e293b);
+    border-color: var(--md-default-fg-color--lightest, #334155);
+  }
+  .md-typeset figure.kb-diagram .kb-diagram__num {
+    background: #3b82f6;
+  }
+}
+
+[data-md-color-scheme="slate"] .md-typeset figure.kb-diagram {
+  background: var(--md-code-bg-color, #1e293b);
+  border-color: var(--md-default-fg-color--lightest, #334155);
+}
+
+[data-md-color-scheme="slate"] .md-typeset figure.kb-diagram .kb-diagram__num {
+  background: #3b82f6;
+}
+
+/* Print: drop card chrome for cleaner page output */
+@media print {
+  .md-typeset figure.kb-diagram {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}

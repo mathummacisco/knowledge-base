@@ -1,0 +1,68 @@
+name: Knowledge Base CI
+
+# Source of truth for the CI gate is `make ci-check` in the root Makefile.
+# Keeping the workflow thin means the contract can be reproduced locally:
+#
+#   make ci-check
+#
+# Which runs: frontmatter -> links -> images -> strict build.
+#
+# Stale-docs validation is intentionally NOT in this gate. Per-doc staleness
+# would fail unrelated PRs once a doc tips past its review_cadence. Staleness
+# is tracked separately by the Stale Docs Report workflow (push to main +
+# weekly schedule), which surfaces it as an issue, not a CI failure.
+
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+      - "overrides/**"
+      - "scripts/**"
+      - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - "Makefile"
+      - ".github/workflows/kb-ci.yml"
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "overrides/**"
+      - "scripts/**"
+      - "mkdocs.yml"
+      - "requirements-docs.txt"
+      - "Makefile"
+
+jobs:
+  ci-check:
+    name: Validate + strict build (make ci-check)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Material's `social` plugin renders per-page OG preview PNGs. It needs
+      # Cairo + Pango + fontconfig at the OS layer. `mkdocs-material[imaging]`
+      # brings the Python bindings; this step brings the native libraries.
+      - name: Install image libraries for social cards
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libcairo2 \
+            libpango-1.0-0 \
+            libpangocairo-1.0-0 \
+            libgdk-pixbuf-2.0-0 \
+            fonts-roboto
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-docs.txt
+
+      - name: Install docs dependencies
+        run: pip install -r requirements-docs.txt
+
+      - name: Run CI checks (make ci-check)
+        run: make ci-check

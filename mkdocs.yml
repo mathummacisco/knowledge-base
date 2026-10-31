@@ -1,0 +1,194 @@
+site_name: Knowledge Base
+site_description: Single source of truth for platform, operations, security, and engineering knowledge.
+site_url: https://your-org.github.io/knowledge-base/
+repo_url: https://github.com/your-org/knowledge-base
+repo_name: your-org/knowledge-base
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+
+hooks:
+  - scripts/whats_new_hook.py
+  - scripts/page_meta_hook.py
+  - scripts/related_reading_hook.py
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  features:
+    # Navigation
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.path
+    - navigation.prune
+    - navigation.top
+    - navigation.footer
+    # Search
+    - search.suggest
+    - search.highlight
+    - search.share
+    # Table of contents
+    - toc.follow
+    # Content
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+    - content.action.edit
+    - content.action.view
+    # Header
+    - header.autohide
+    # Announce
+    - announce.dismiss
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+    annotation: material/plus-circle-outline
+    admonition:
+      note: material/note-edit-outline
+      info: material/information-outline
+      tip: material/lightbulb-on-outline
+      success: material/check-circle-outline
+      warning: material/alert-outline
+      failure: material/close-octagon-outline
+      danger: material/skull-outline
+      bug: material/shield-bug-outline
+      example: material/test-tube
+      quote: material/format-quote-close
+
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-\.\_]+'
+  - tags
+  - awesome-pages
+  - section-index
+  # Generate per-page social/OG preview cards (1200x630 PNG) for Slack/Teams/LinkedIn
+  - social:
+      enabled: !ENV [CI, false]
+      cards_layout_options:
+        background_color: "#0b0d11"
+        color: "#ffffff"
+        font_family: Inter
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: fade
+      width: 90%
+      height: auto
+      zoomable: true
+      draggable: false
+  - redirects:
+      redirect_maps: {}
+  - git-revision-date-localized:
+      type: timeago
+      enable_creation_date: true
+      fallback_to_build_date: true
+      exclude:
+        - tags.md
+  # Deploy-time only. The plugin is gated on GIT_COMMITTERS_ENABLED (a
+  # dedicated bool env var so YAML coerces "true"/"false" correctly — using
+  # the API-key var directly would surface the token string in place of the
+  # bool). PR builds skip the plugin entirely, avoiding the
+  # unauthenticated GitHub API rate limit and the cascading 404s that
+  # follow.
+  - git-committers:
+      enabled: !ENV [GIT_COMMITTERS_ENABLED, false]
+      repository: your-org/knowledge-base
+      branch: main
+      cache_dir: .cache/git-committers
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: Anchor link to this section
+      toc_depth: 4
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/your-org/knowledge-base
+      name: GitHub repository
+  status:
+    new: Recently added
+    deprecated: Deprecated
+  generator: false
+
+extra_css:
+  - assets/css/extra.css
+
+extra_javascript:
+  - assets/js/contribute.js
+
+copyright: Copyright &copy; 2026 Knowledge Base Team · Built with Material for MkDocs
+
+exclude_docs: |
+  _templates/

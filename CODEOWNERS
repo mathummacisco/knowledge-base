@@ -1,0 +1,22 @@
+# CODEOWNERS for the knowledge base
+# Format: <path> <owner1> <owner2>
+# Replace placeholders with real GitHub teams.
+
+# Default — any change requires platform team review
+*                                   @your-org/platform
+
+# Top-level sections
+/docs/00-start-here/                @your-org/platform
+/docs/10-platform/                  @your-org/platform
+/docs/20-operations/                @your-org/operations
+/docs/30-security/                  @your-org/security
+/docs/40-devops/                    @your-org/devops
+/docs/50-devbox/                    @your-org/devex
+/docs/60-best-practices/            @your-org/platform
+/docs/70-tools/                     @your-org/platform
+/docs/80-proposals/                 @your-org/architects
+/docs/90-knowledge-transfer/        @your-org/platform
+
+# Service-specific (examples — extend as needed)
+/docs/10-platform/istio/             @your-org/service-mesh
+/docs/10-platform/agent-gateway/     @your-org/agent-platform
