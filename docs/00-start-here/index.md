@@ -1,6 +1,6 @@
 ---
 title: Start Here
-owner: your-org/platform
+owner: mathummacisco
 status: active
 type: reference
 service: n/a
@@ -53,24 +53,24 @@ links to the editing standards every contributor follows.
 
     ---
 
-    What this knowledge base is for, how it's structured, and how to clone it locally.
+    What this knowledge base is for and how it's structured.
 
-    [:octicons-arrow-right-24: Open on GitHub](https://github.com/your-org/knowledge-base#readme)
+    [:octicons-arrow-right-24: Open on GitHub](https://github.com/mathummacisco/knowledge-base#readme)
 
 -   :material-handshake-outline:{ .lg .middle } __Contributing Guide__
 
     ---
 
-    Frontmatter rules, filename conventions, doc-type taxonomy, review cadence, and the PR workflow.
+    Frontmatter rules, filename conventions, and doc-type taxonomy.
 
-    [:octicons-arrow-right-24: Open on GitHub](https://github.com/your-org/knowledge-base/blob/main/CONTRIBUTING.md)
+    [:octicons-arrow-right-24: Open on GitHub](https://github.com/mathummacisco/knowledge-base/blob/main/CONTRIBUTING.md)
 
--   :material-star-outline:{ .lg .middle } __Best Practices__
+-   :material-graph-outline:{ .lg .middle } __Learning__
 
     ---
 
-    Cross-cutting standards and guidelines for engineering and platform design.
+    Notes on tools and topics I'm learning.
 
-    [:octicons-arrow-right-24: Open section](../60-best-practices/index.md)
+    [:octicons-arrow-right-24: Open section](../10-learning/index.md)
 
 </div>

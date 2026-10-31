@@ -5,15 +5,7 @@
 | Intent                                         | Section                                           |
 | ---------------------------------------------- | ------------------------------------------------- |
 | Onboarding / glossary / how to use this repo   | [docs/00-start-here/](docs/00-start-here/)        |
-| AWS service knowledge (EKS, MSK, RDS, …)       | [docs/10-platform/](docs/10-platform/)            |
-| Cross-service operational procedure            | [docs/20-operations/](docs/20-operations/)        |
-| Security finding, policy, incident response    | [docs/30-security/](docs/30-security/)            |
-| CI/CD, build/release, internal tooling         | [docs/40-devops/](docs/40-devops/)                |
-| Local development environment setup            | [docs/50-devbox/](docs/50-devbox/)                |
-| Standards, patterns, guidelines                | [docs/60-best-practices/](docs/60-best-practices/) |
-| Tool evaluation or how-to                      | [docs/70-tools/](docs/70-tools/)                  |
-| ADR, RFC, future-state proposal                | [docs/80-proposals/](docs/80-proposals/)          |
-| Onboarding deck, handoff, brownbag             | [docs/90-knowledge-transfer/](docs/90-knowledge-transfer/) |
+| Notes on a tool or topic you're learning       | [docs/10-learning/](docs/10-learning/)            |
 
 ---
 
@@ -21,8 +13,7 @@
 
 - **Folders:** `lowercase-kebab-case`
 - **Files:** `lowercase-kebab-case.md`
-- **Top-level numbering only:** `00-`, `10-`, … `90-`. **Never** number subfolders.
-- **Use canonical service names:** `eks`, `msk`, `rds`, `documentdb`, `elasticache`, `opensearch`.
+- **Top-level numbering only:** `00-`, `10-`, `20-`, … **Never** number subfolders.
 - **Use locked doc-type names:** `sop`, `runbook`, `troubleshooting`, `reference`, `analysis`, `migration`, `architecture`, `capacity`, `cost`.
 
 ---
@@ -33,16 +24,14 @@ Every `.md` document must start with:
 
 ```yaml
 ---
-title: EKS Disaster Recovery SOP
-owner: platform-eks@company.com
-status: active            # draft | active | deprecated
-type: sop                 # sop | runbook | troubleshooting | reference | analysis | migration | architecture
-service: eks              # canonical service name, or "n/a"
+title: Service Mesh
+owner: mathummacisco
+status: draft            # draft | active | deprecated
+type: reference           # sop | runbook | troubleshooting | reference | analysis | migration | architecture
+service: n/a              # topic-specific identifier, or "n/a"
 last_reviewed: 2026-06-01
 review_cadence: quarterly # monthly | quarterly | biannual | annual
-tags: [eks, dr, kubernetes, aws]
-related:
-  - docs/10-platform/aws/disaster-recovery/sop/environment-recovery-from-backup.md
+tags: [cncf, cncf-tools, service-mesh]
 ---
 ```
 
@@ -50,22 +39,14 @@ CI will reject PRs missing required fields.
 
 ---
 
-## 4. Folder Layout Inside a Service
+## 4. Folder Layout Inside a Topic
 
 ```
-docs/10-platform/aws/<service>/
+docs/10-learning/<topic>/
   index.md
-  sop/
-  runbook/
-  troubleshooting/
-  reference/
-  capacity/
-  migration/
-  architecture/
+  <notes>.md
   assets/
     img/
-    scripts/
-    data/
 ```
 
 - Binaries (images, CSVs, shell scripts) live in `assets/<type>/`, never inline with prose.
@@ -90,7 +71,7 @@ Copy from [docs/_templates/](docs/_templates/):
 - [ ] File placed in the correct numbered section.
 - [ ] Filename is `lowercase-kebab-case.md`.
 - [ ] Frontmatter present and valid.
-- [ ] `owner` set to a team or DL (not a person).
+- [ ] `owner` set (not a placeholder).
 - [ ] `last_reviewed` is today's date.
 - [ ] Links use workspace-relative paths.
 - [ ] Binaries placed in `assets/` (not inline).

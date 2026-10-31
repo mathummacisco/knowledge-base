@@ -933,8 +933,8 @@
 
 /* ============================================================ */
 /* Diagram series — figure wrapper around Mermaid blocks         */
-/* Used by docs/60-best-practices/harness-engineering/* and any  */
-/* other doc that wants a polished "captioned diagram" look.     */
+/* Used by any doc that wants a polished "captioned diagram"     */
+/* look.                                                         */
 /* ============================================================ */
 
 .md-typeset figure.kb-diagram {

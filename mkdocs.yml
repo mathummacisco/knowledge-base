@@ -1,8 +1,8 @@
 site_name: Knowledge Base
-site_description: Single source of truth for platform, operations, security, and engineering knowledge.
-site_url: https://your-org.github.io/knowledge-base/
-repo_url: https://github.com/your-org/knowledge-base
-repo_name: your-org/knowledge-base
+site_description: Personal learning log — notes on tools and topics I'm learning.
+site_url: https://mathummacisco.github.io/knowledge-base/
+repo_url: https://github.com/mathummacisco/knowledge-base
+repo_name: mathummacisco/knowledge-base
 edit_uri: edit/main/docs/
 
 docs_dir: docs
@@ -122,7 +122,7 @@ plugins:
   # follow.
   - git-committers:
       enabled: !ENV [GIT_COMMITTERS_ENABLED, false]
-      repository: your-org/knowledge-base
+      repository: mathummacisco/knowledge-base
       branch: main
       cache_dir: .cache/git-committers
 
@@ -175,7 +175,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/your-org/knowledge-base
+      link: https://github.com/mathummacisco/knowledge-base
       name: GitHub repository
   status:
     new: Recently added
@@ -188,7 +188,7 @@ extra_css:
 extra_javascript:
   - assets/js/contribute.js
 
-copyright: Copyright &copy; 2026 Knowledge Base Team · Built with Material for MkDocs
+copyright: Copyright &copy; 2026 mathummacisco · Built with Material for MkDocs
 
 exclude_docs: |
   _templates/

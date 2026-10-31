@@ -1,6 +1,6 @@
 ---
 title: Home
-owner: your-org/platform
+owner: mathummacisco
 status: active
 type: reference
 service: n/a
@@ -53,35 +53,25 @@ Every doc has an **Edit** action at the bottom. Click it and your fix lands as a
 
 <div class="grid cards kb-featured" markdown>
 
--   <span class="kb-card__eyebrow">Platform</span>
+-   <span class="kb-card__eyebrow">Learning</span>
 
-    :material-graph-outline:{ .lg .middle } **Istio Service Mesh**
-
-    ---
-
-    mTLS rollout, ingress-gateway incident runbook, and sidecar-injection troubleshooting for the service mesh layer.
-
-    [:octicons-arrow-right-24: Open section](10-platform/istio/index.md)
-
--   <span class="kb-card__eyebrow">Platform</span>
-
-    :material-gateway:{ .lg .middle } **Agent Gateway**
+    :material-graph-outline:{ .lg .middle } **CNCF Tools**
 
     ---
 
-    Rate-limit rollout SOP, upstream-timeout runbook, and auth-failure troubleshooting for the AI agent request gateway.
+    CNCF Graduated projects grouped by category, with a status table and notes per tool.
 
-    [:octicons-arrow-right-24: Open section](10-platform/agent-gateway/index.md)
+    [:octicons-arrow-right-24: Open section](10-learning/cncf-tools/index.md)
 
 -   <span class="kb-card__eyebrow">Start Here</span>
 
-    :material-rocket-launch-outline:{ .lg .middle } **Onboarding Checklist**
+    :material-rocket-launch-outline:{ .lg .middle } **How to Use This Knowledge Base**
 
     ---
 
-    A week-by-week plan for new contributors — day 1 through month 1.
+    How the structure works and how to add a new topic.
 
-    [:octicons-arrow-right-24: Read the checklist](00-start-here/onboarding.md)
+    [:octicons-arrow-right-24: Read it](00-start-here/onboarding.md)
 
 </div>
 
@@ -92,15 +82,7 @@ Every doc has an **Edit** action at the bottom. Click it and your fix lands as a
 <div class="kb-pillars" markdown>
 
 [Start Here](00-start-here/index.md){ .kb-pillar }
-[Platform](10-platform/index.md){ .kb-pillar }
-[Operations](20-operations/index.md){ .kb-pillar }
-[Security](30-security/index.md){ .kb-pillar }
-[DevOps](40-devops/index.md){ .kb-pillar }
-[Devbox](50-devbox/index.md){ .kb-pillar }
-[Best Practices](60-best-practices/index.md){ .kb-pillar }
-[Tools](70-tools/index.md){ .kb-pillar }
-[Proposals](80-proposals/index.md){ .kb-pillar }
-[Knowledge Transfer](90-knowledge-transfer/index.md){ .kb-pillar }
+[Learning](10-learning/index.md){ .kb-pillar }
 
 </div>
 
@@ -113,4 +95,4 @@ Every doc has an **Edit** action at the bottom. Click it and your fix lands as a
 - Top-level numbering uses gaps of 10 (`00`, `10`, … `90`) so new sections can be inserted without renumbering.
 - Doc-type folders: `sop/` · `runbook/` · `troubleshooting/` · `reference/` · `analysis/` · `migration/` · `architecture/` · `capacity/` · `cost/`.
 
-See the [contributing guide](https://github.com/your-org/knowledge-base/blob/main/CONTRIBUTING.md) for the full ruleset and the [frontmatter templates](https://github.com/your-org/knowledge-base/tree/main/docs/_templates) for a copy-pasteable starting point.
+See the [contributing guide](https://github.com/mathummacisco/knowledge-base/blob/main/CONTRIBUTING.md) for the full ruleset and the [frontmatter templates](https://github.com/mathummacisco/knowledge-base/tree/main/docs/_templates) for a copy-pasteable starting point.

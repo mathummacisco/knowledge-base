@@ -3,15 +3,5 @@ nav:
   - Browse:
       - browse.md
       - 00-start-here
-      - 50-devbox
-      - 70-tools
-      - 80-proposals
-      - 90-knowledge-transfer
-  - Practices: 60-best-practices
-  - Platform: 10-platform
-  - Operations:
-      - operations.md
-      - 20-operations
-      - 30-security
-      - 40-devops
+  - Learning: 10-learning
   - Tags: tags.md

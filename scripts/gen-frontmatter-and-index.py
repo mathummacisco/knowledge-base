@@ -39,16 +39,8 @@ TYPE_BY_FOLDER = {
 }
 
 OWNER_BY_TOP = {
-    "00-start-here": "your-org/platform",
-    "10-platform": "your-org/platform",
-    "20-operations": "your-org/operations",
-    "30-security": "your-org/security",
-    "40-devops": "your-org/devops",
-    "50-devbox": "your-org/devex",
-    "60-best-practices": "your-org/platform",
-    "70-tools": "your-org/platform",
-    "80-proposals": "your-org/architects",
-    "90-knowledge-transfer": "your-org/platform",
+    "00-start-here": "mathummacisco",
+    "10-learning": "mathummacisco",
 }
 
 H1_RE = re.compile(r"^\s*#\s+(.+?)\s*$", re.MULTILINE)
@@ -116,7 +108,7 @@ def infer_service(path: Path) -> str:
 def infer_owner(path: Path) -> str:
     rel = path.relative_to(DOCS)
     top = rel.parts[0] if rel.parts else ""
-    return OWNER_BY_TOP.get(top, "your-org/platform")
+    return OWNER_BY_TOP.get(top, "mathummacisco")
 
 
 def infer_tags(path: Path) -> list[str]:

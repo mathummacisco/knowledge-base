@@ -46,7 +46,6 @@ SKIP_PATTERNS = (
     "/assets/",
     "/index.md",
     "/404.md",
-    "/operations.md",
     "/browse.md",
     "/tags.md",
 )

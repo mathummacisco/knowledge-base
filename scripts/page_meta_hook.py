@@ -28,14 +28,9 @@ SKIP_PAGES: frozenset[str] = frozenset(
     {
         "index.md",
         "browse.md",
-        "operations.md",
         "tags.md",
         "404.md",
-        "60-best-practices/index.md",
-        "10-platform/index.md",
-        "20-operations/index.md",
-        "30-security/index.md",
-        "40-devops/index.md",
+        "10-learning/index.md",
         "00-start-here/index.md",
     }
 )

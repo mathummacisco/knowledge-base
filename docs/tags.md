@@ -1,6 +1,6 @@
 ---
 title: Browse by Tag
-owner: your-org/platform
+owner: mathummacisco
 status: active
 type: reference
 service: n/a
@@ -19,23 +19,17 @@ on long pages. Pick a pillar below for what's covered so far:
 
 <div class="grid cards" markdown>
 
--   :material-graph-outline:{ .lg .middle } __Service mesh__
+-   :material-graph-outline:{ .lg .middle } __CNCF tools__
 
     ---
 
-    `istio` · `service-mesh` · `mtls` · `ingress-gateway`
+    `cncf` · `cncf-tools` · `service-mesh` · `scheduling-and-orchestration` · `security-and-compliance`
 
--   :material-gateway:{ .lg .middle } __Agent platform__
-
-    ---
-
-    `agent-gateway` · `api-gateway` · `rate-limiting` · `authentication`
-
--   :material-tools:{ .lg .middle } __Operations practice__
+-   :material-book-open-page-variant-outline:{ .lg .middle } __Meta__
 
     ---
 
-    `sop` · `runbook` · `troubleshooting` · `reference`
+    `onboarding` · `glossary` · `reference`
 
 </div>
 

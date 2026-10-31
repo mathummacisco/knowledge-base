@@ -1,38 +1,27 @@
 # Knowledge Base
 
-> Single source of truth for platform, operations, security, and engineering knowledge.
+> Personal learning log — notes on tools and topics I'm learning or about to learn.
 
-This is a **minimal, working example** of the knowledge base pattern — the
-full automation (CI, validators, build hooks, templates, naming
-conventions) is wired up exactly as it would be in production, with just
-two example services (`istio`, `agent-gateway`) populated under
-`10-platform/` to demonstrate the doc-type layout end to end. Extend it by
-copying that pattern into your own services and sections.
+Built on the mkdocs-material knowledge-base pattern: full automation (CI,
+validators, build hooks, templates, naming conventions) wired up the same
+way a production team KB would be, scaled down to a single-owner learning
+log. Starting topic: CNCF Graduated projects.
 
 ---
 
 ## 🚀 Start Here
 
-- **New to the team?** → [docs/00-start-here/](docs/00-start-here/)
-- **Looking for a service runbook?** → [docs/10-platform/](docs/10-platform/)
-- **Need to run a procedure?** → [docs/20-operations/](docs/20-operations/)
+- **New here?** → [docs/00-start-here/](docs/00-start-here/)
+- **Looking for learning notes?** → [docs/10-learning/](docs/10-learning/)
 
 ---
 
 ## 📚 Knowledge Map
 
-| #  | Section                                                    | What's Inside                                    |
-| -- | ---------------------------------------------------------- | ------------------------------------------------- |
-| 00 | [Start Here](docs/00-start-here/)                          | Onboarding, glossary, conventions, FAQ           |
-| 10 | [Platform](docs/10-platform/)                              | Service SOPs, runbooks, troubleshooting          |
-| 20 | [Operations](docs/20-operations/)                          | Identity, security ops, process procedures       |
-| 30 | [Security](docs/30-security/)                              | Findings, policy, incident response              |
-| 40 | [DevOps](docs/40-devops/)                                  | CI/CD, build/release, internal tooling           |
-| 50 | [Devbox](docs/50-devbox/)                                  | Local development environment setup              |
-| 60 | [Best Practices](docs/60-best-practices/)                  | Standards, patterns, guidelines                  |
-| 70 | [Tools](docs/70-tools/)                                    | Tool evaluations & how-to guides                 |
-| 80 | [Proposals](docs/80-proposals/)                            | ADRs, RFCs, future-state designs                 |
-| 90 | [Knowledge Transfer](docs/90-knowledge-transfer/)          | Onboarding decks, handoffs, brownbags            |
+| #  | Section                                  | What's Inside                                |
+| -- | ------------------------------------------ | ----------------------------------------------- |
+| 00 | [Start Here](docs/00-start-here/)        | How this KB works, glossary, FAQ             |
+| 10 | [Learning](docs/10-learning/)            | Notes by topic — starting with CNCF tools    |
 
 ---
 
@@ -41,16 +30,16 @@ copying that pattern into your own services and sections.
 - All docs in Markdown with required frontmatter — see [CONTRIBUTING.md](CONTRIBUTING.md).
 - Filenames use `lowercase-kebab-case.md`.
 - Every folder has an `index.md`.
-- Top-level numbering uses gaps of 10 (`00`, `10`, … `90`) so new sections can be inserted without renumbering.
+- Top-level numbering uses gaps of 10 (`00`, `10`, `20`, …) so new sections can be inserted without renumbering.
 - **Numbers only at the top level of [docs/](docs/)** — never inside subfolders.
 
 ---
 
 ## 🛠 Doc-Type Vocabulary
 
-Used as folder names inside service trees (e.g., `docs/10-platform/istio/sop/`):
-
 `sop` · `runbook` · `troubleshooting` · `reference` · `analysis` · `migration` · `architecture` · `capacity` · `cost`
+
+Most learning notes use `reference`.
 
 ---
 
@@ -76,16 +65,8 @@ Ownership is defined in [CODEOWNERS](CODEOWNERS).
 
 ```
 docs/
-  00-start-here/          # Onboarding, glossary, conventions
-  10-platform/            # Long-lived service/infra knowledge (istio, agent-gateway)
-  20-operations/          # Cross-service operational procedures
-  30-security/            # Security posture, findings, policy
-  40-devops/              # CI/CD, build/release
-  50-devbox/              # Local dev environment
-  60-best-practices/      # Standards & patterns
-  70-tools/               # Tool evaluations
-  80-proposals/           # ADRs, RFCs
-  90-knowledge-transfer/  # Onboarding decks, brownbags
+  00-start-here/          # How this KB works, glossary, FAQ
+  10-learning/            # Learning notes by topic (cncf-tools, ...)
   _templates/             # Doc templates (SOP, runbook, etc.)
 archive/                  # Deprecated content (kept for history)
 scripts/                  # Repo automation (frontmatter/link/image validators, hooks)

@@ -30,8 +30,7 @@ MARKER = "<!-- related-reading -->"
 # These tags appear on so many docs that they don't signal real relatedness.
 DEWEIGHTED = frozenset(
     {
-        "aws", "sop", "reference", "index", "home", "meta", "landing",
-        "tags", "404", "operations", "operations-hub",
+        "sop", "reference", "index", "home", "meta", "landing", "tags", "404",
     }
 )
 
@@ -40,7 +39,6 @@ SKIP_PAGES = frozenset(
     {
         "index.md",
         "browse.md",
-        "operations.md",
         "tags.md",
         "404.md",
     }

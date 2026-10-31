@@ -1,6 +1,6 @@
 ---
 title: FAQ
-owner: your-org/platform
+owner: mathummacisco
 status: active
 type: reference
 service: n/a
@@ -22,7 +22,7 @@ unblock the next person.
 Three good entry points:
 
 1.  The [home page](../index.md) cards link to each top-level section.
-2.  The [Tags page](../tags.md) groups docs into pillars (service mesh, agent platform, operations practice). Click any pillar to see what's covered.
+2.  The [Tags page](../tags.md) groups docs into pillars. Click any pillar to see what's covered.
 3.  Site search (top right). Match works on titles, headings, and body content. Boilerplate sub-section landings are intentionally excluded to keep results clean.
 
 ### What do the chips below the page title mean?
@@ -30,7 +30,7 @@ Three good entry points:
 The metadata strip you see under every H1 shows four signals:
 
 - A **coloured chip** — the doc type (SOP, runbook, troubleshooting, …).
-- **Owned by `team`** — which GitHub team you should @-mention with feedback.
+- **Owned by `name`** — who to ping with feedback.
 - **Reviewed `date`** — last time the owner verified the content is current.
 - **`N` min read** — rough estimate at ~220 wpm. Pages under one minute don't show this.
 
@@ -41,9 +41,9 @@ report has likely already opened an issue.
 
 Below every long doc you'll see up to five suggestions. They're computed at
 build time from YAML tag overlap — pages sharing the most _specific_ tags
-(e.g. `istio`, `mtls`) outrank pages with only very broad tags (`sop`,
-`reference`). It's not perfect, but it gets better automatically as docs
-gain useful tags.
+(e.g. `cncf-tools`, `service-mesh`) outrank pages with only very broad tags
+(`reference`, `index`). It's not perfect, but it gets better automatically
+as docs gain useful tags.
 
 ### I hit a 404 / broken link. What do I do?
 
@@ -58,10 +58,10 @@ CI runs `scripts/check-links.py` on every PR so we know about broken
 
 1.  Pick the folder that matches the doc's domain. Reuse existing structure
     (e.g. `sop/`, `troubleshooting/`) rather than inventing new ones.
-2.  Add the file with a kebab-case filename — `istio-mtls-rollout-sop.md`,
-    not `Istio mTLS Rollout SOP.md`.
+2.  Add the file with a kebab-case filename — `service-mesh.md`,
+    not `Service Mesh.md`.
 3.  Add YAML frontmatter. Templates live in
-    [`docs/_templates/`](https://github.com/your-org/knowledge-base/tree/main/docs/_templates).
+    [`docs/_templates/`](https://github.com/mathummacisco/knowledge-base/tree/main/docs/_templates).
     Use the one that matches your doc's type.
 4.  Open the PR. CI runs frontmatter validation, internal link checking,
     image-size budget enforcement, and a strict mkdocs build — fix anything
@@ -69,9 +69,9 @@ CI runs `scripts/check-links.py` on every PR so we know about broken
 
 ### What goes in `tags:`?
 
-Specific concepts and services, not doc types. Good tags: `istio`,
-`mtls`, `agent-gateway`, `rate-limiting`. Avoid generic single-word tags
-like `tools` or `misc` — they get de-weighted in Related reading anyway.
+Specific concepts and tools, not doc types. Good tags: `cncf`,
+`service-mesh`, `cncf-tools`. Avoid generic single-word tags like `tools`
+or `misc` — they get de-weighted in Related reading anyway.
 
 Three to six tags is the sweet spot. More than ten makes the doc harder
 to find via tag pillars.

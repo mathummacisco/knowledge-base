@@ -13,7 +13,7 @@
     var btn = document.createElement("a");
     btn.className = "kb-header-contribute";
     btn.href =
-      "https://github.com/your-org/knowledge-base/blob/main/CONTRIBUTING.md";
+      "https://github.com/mathummacisco/knowledge-base/blob/main/CONTRIBUTING.md";
     btn.target = "_blank";
     btn.rel = "noopener";
     btn.setAttribute("aria-label", "Open the contributing guide on GitHub");

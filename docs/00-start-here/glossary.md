@@ -1,6 +1,6 @@
 ---
 title: Glossary
-owner: your-org/platform
+owner: mathummacisco
 status: active
 type: reference
 service: n/a
@@ -32,17 +32,15 @@ The `type:` field in every doc's frontmatter is one of:
 
 - **Frontmatter** — the YAML block at the top of every `.md` file. Required fields are validated by `scripts/check-frontmatter.py` on every PR. Owner, review cadence, type, and tags drive every UI affordance in this site.
 - **Review cadence** — how often a doc needs an owner to re-verify it. Valid values: `monthly`, `quarterly`, `biannual`, `annual`. The stale-docs report opens issues when the window passes.
-- **Stale-docs** — a report (and GitHub issue) generated automatically for docs past their cadence window.
+- **Stale-docs** — a report generated automatically for docs past their cadence window.
 - **What's new** — the feed on the home page generated from the last N git commits, filtered to substantive doc changes.
-- **Owner alias** — the GitHub team that owns a doc, written as `org/team-slug` in frontmatter. Mentioning the alias on a PR pings the right reviewers.
+- **Owner** — the GitHub username/team that owns a doc, written in frontmatter.
 
-## Platform component shorthand
+## Topic shorthand
 
-These show up in URLs, tags, and frontmatter `service:` fields. They map 1:1 to the [Platform landing](../10-platform/index.md).
+These show up in URLs, tags, and frontmatter `service:` fields. They map to the [Learning landing](../10-learning/index.md).
 
-- **Istio** — the service mesh. mTLS, traffic routing, and ingress gateway.
-- **Agent Gateway** — the routing layer in front of AI agent workloads. Provides identity, request shaping, and observability for downstream LLM workers.
-- **DR** / **disaster recovery** — playbooks for region or cluster loss.
-- **DORA metrics** — Deployment frequency, Lead time, Change failure rate, MTTR. Used in DevOps reviews.
-- **Shift-left** — moving validation (security, perf, contract tests) earlier in the pipeline.
-- **Brownbag** — lightweight internal teaching session, usually recorded in `90-knowledge-transfer/`.
+- **CNCF** — Cloud Native Computing Foundation, the organization that stewards projects like Kubernetes, Istio, and Envoy.
+- **Graduated project** — a CNCF project that has met the foundation's maturity bar (wide adoption, diverse maintainership, etc.), as opposed to Sandbox or Incubating.
+- **Service mesh** — a dedicated infrastructure layer (e.g. Istio, Linkerd) that handles service-to-service traffic: mTLS, routing, observability.
+- **GitOps** — declarative infrastructure/app state stored in git, reconciled continuously by a controller (e.g. Argo CD, Flux).
